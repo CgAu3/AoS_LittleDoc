@@ -1,0 +1,126 @@
+晓月圆舞曲实体内存数据组织格式
+来源：DSVania Edit 作者：Lago Lunatic
+翻译：Abslb
+Memory used for entities in AoS is 020004E4 - 02007863. Each entity is 0x84 bytes long. They range from 0-DF.
+晓月的实体内存在（美版：020004E4到02007863）（汉化版：不确定）范围内。每个实体的内存空间有0x84字节长。实体的编号为0x0-0xDF
+
+00,4: Pointer to update code. 更新代码指针
+04,4: Pointer to draw code. 画图代码指针
+0A,1: State. 状态
+0B,1: Substate. 次级状态
+10,1: Entity slot index. 实体槽编号
+  The index this entity is at in list 020004E4.
+  这个实体在（以020004E4（美版地址）为起始的实体序列）中的编号
+14,1: ? 未知
+1C,4: Varies. 根据不同实体而变化
+  For enemies composed of multiple entities, this may be a pointer to the parent entity.
+  对于多体敌人，这也许是它的父实体的指针
+22,2: Frame counter. 帧数计数
+24,4: 
+2C,4: X acceleration? 或许是X方向加速度
+2D,1: Counter for how many frames to keep flashing white after being damaged. 剩余闪白帧数
+  指的是受伤后闪白的帧数还剩多少帧。应该是指敌人。
+  This is set when the enemy is damaged and decremented every frame.
+  敌人每次受伤都会给这个值赋值，而这个值每一帧都会递减。
+  If bit 02 is set the enemy will be drawn pure white or normal otherwise. (In other words, the enemy will be white for 2 frames, then normal for 2 frames, and then repeat until the counter is 0.)
+  如果这个值的（0x02 = 0b0000 0010）位是1（也就是是偶数时），敌人会被画成纯白色， 而不是偶数时就会被画成普通的颜色。
+  换句话说，当这个值大于0时，敌人会两帧显示为白色，两帧显示为普通色，如此循环直到这个值为0
+  Certain enemies freeze as long as this is above 0.
+  有些敌人，在这个值大于0时，会静止不动
+2E,2: Current MP. 当前MP
+30,2: Var A. 参数A
+32,2: Var B. 参数B
+34,2: Current HP. 当前HP
+36,1: Subtype. 次级种类
+3C,1: Attack. 攻击力
+3D,1: Defense. 防御力
+40,4: X pos on the screen in subpixels. 以亚像素为单位的、屏幕上x位置（横坐标）
+  In the GBA games, each pixel is 0x10000 subpixels.
+  在GBA游戏中，每个像素是0x10000 = （十进制65536）个亚像素
+  Note that unlike the DSVanias, there is no X/Y pos in the room. Only on the screen.
+  注意，与DS上的恶魔城不同的是，没有房间内X/Y坐标，只有屏幕上的
+44,4: Y pos on the screen in subpixels. 以亚像素为单位的、屏幕上y位置（纵坐标）
+  In the GBA games, each pixel is 0x10000 subpixels.
+  在GBA游戏中，每个像素是0x10000 = （十进制65536）个亚像素
+  Note that unlike the DSVanias, there is no X/Y pos in the room. Only on the screen.
+  注意，与DS上的恶魔城不同的是，没有房间内X/Y坐标，只有屏幕上的
+42,2: X pos on the screen in pixels. 以像素为单位的、屏幕上x位置（横坐标）
+  Sometimes only the upper halfword of the X/Y pos is read.
+  有时程序只会读取X/Y位置的上半字。
+46,2: Y pos on the screen in pixels. 以像素为单位的、屏幕上y位置（纵坐标）
+  Sometimes only the upper halfword of the X/Y pos is read.
+  有时程序只会读取X/Y位置的上半字。
+译注：以亚像素为单位的坐标数据都是一个字（4个字节长）的数据，而一个像素是0x0000，刚好两个字节，故而所谓“读取上半字”就是指的读取以像素为单位的坐标数据。仔细看一眼，这里的偏移值，以像素为单位的坐标值是以亚像素为单位的坐标值的一部分。
+48,4: X velocity. x方向速度
+4C,4: Y velocity. y方向速度
+译注：译者记得这两个数据都是有符号的；velocity这个词本身也是指物理中矢量的、有方向的速度
+50,4: X acceleration. x加速度
+54,4: Y acceleration (gravity). y加速度（重力）
+58,1: Bitfield related to sprite drawing. 与精灵绘制有关的bitfield（比特域——这词好像根本没中文）
+  20 Do not draw this entity. 不绘制此实体
+  40 Horizontal flip. 水平翻转
+  80 Vertical flip. 垂直翻转
+译注：其实“精灵”这个词就理解成贴图就好了——主要是GBA有专门的精灵绘制接口，所以还是忠诚翻译了（？）
+59,1: Bitfield? 未知比特域
+  04 ?
+5A,1: Another bitfield related to sprite drawing. 另一个与精灵绘制有关的比特域
+  01 Enables mosaic for this entity. 为这个实体启用马赛克效果
+    In order for this to have an effect, the system mosaic size must also be set (at 03002CA4).
+    为了让这个起效，必须先设置系统当前马赛克大小（在0x03002CA4）
+  译注：其实就是说系统处于（由GBA硬件提供的）马赛克状态时，这个实体是否会被马赛克模糊掉
+  02 Draw entity semi-transparent. 将实体绘制成半透明的样子
+  04 
+  78 The OBJ palette index to use to draw this entity, 0-F. 
+  用哪个（第0x1到0xF个）OBJ调色板来绘制这个实体
+  译注：如果不知道这句话什么意思，请参考一下Visual Boy Advance的“查看调色板”工具， 里面有个OBJ区域，是16个调色板。
+  08 
+5B,1: Current sprite animation type. 当前精灵的动画种类
+  0 Normal animation. 普通动画
+  1 Julius animation. J叔动画
+  2 Used by some bosses with several graphics pages like Death and Headhunter.
+  一些有好几页材质的BOSS（比如死神、收集者）的动画
+  3 Soma animation. 苍真动画
+5C,1: InitializeEnemyFromDNA sets this to 0x12? 
+  有一个叫“从敌人DNA初始化敌人”的函数，可能会把这个值置为0x12，意义不明
+62,1: Affects palette? 可能影响调色板
+  If the lowest bit of this value is set, then it changes the palette of this entity's sprite, but only for the parts that have the lowest bit of the value at part+0B set as well.
+  如果这个值的最低位被置为1（0b0000 0001），而且part+0B处的最低位也被置为1时， 这个值将会改变此实体的调色板。
+  译注：此处涵义不明，part+0B 很可能指的是0B处的substate次级状态
+64,1: Sprite info index. 精灵信息编号
+  This is an index in the currently loaded sprite info list, 0201017C.
+  这是此精灵在0x0201017C处的（当前已加载的精灵信息列表）中的编号
+65,1: Current sprite frame. 精灵当前帧数
+68,4: Pointer to the entity's current animation. 指向精灵当前动画的指针
+6C,1: Related to sprite? Bitfield? 可能和精灵有关的疑似比特域的不明物
+6D,1: Current animation index. 当前动画编号
+译注：（不理解的话最好去参考DSV Edit的Sprite Editor功能）
+6E,1: Current keyframe index in this animation. 当前动画中当前关键帧的编号
+70,1: Iframes index. Iframes 编号
+译注：不明所以。iframes指的是此实体在击中其他实体时给予被击中实体的无敌帧帧数，是一个1字节的数据。
+作者此处的“index”我是真的不知道这是啥了。
+7C,4: On-hurt-player callback. 击中玩家时的回调函数
+  This function pointer is called when the entity collides with the player.
+  当此实体与玩家碰撞时所调用的函数的指针
+80,4: On-damaged callback. 受到伤害时的回调函数
+  This function pointer is called when the entity collides with a player weapon.
+  这是当某个实体与玩家武器碰撞时会调用的函数的指针。
+  It calculates the damage that should be done and kills the enemy if its HP is 0 or below.
+  这个函数会计算伤害，同时如果敌人HP小于等于零，干掉敌人
+
+For enemies: 对于敌人：
+34,2: Max HP. 最大HP
+
+For weapons/skills: 对于武器/技能（魂）：
+14,4: Pointer to the entity that used this weapon/skill (the player). 
+使用此武器/技能的实体，也就是玩家，的指针。
+
+For red souls: 对于红魂：
+1E,2: Var A. 参数A
+
+For blue souls: 对于蓝魂：
+1A,2: Unknown 1 from the blue soul data. 蓝魂数据中的未知项1（unknown1）
+1C,4: "Player effect/Varies" from the blue soul data. 
+蓝魂数据中的“玩家效果/变化”数值（"Player effect/Varies"）
+译注：译者更倾向于把此处的数值称为“根据不同蓝魂而变化的数值”
+
+译注：其实实体内存中可能还包含与属性克制相关的信息，只不过本人并不清楚——DSV的文档中也没有表述过相关内容。

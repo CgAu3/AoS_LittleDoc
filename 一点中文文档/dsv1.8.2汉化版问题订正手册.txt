@@ -1,0 +1,13 @@
+对于中文版编辑中武器的sprite和gfx编辑有问题的情况：
+对./constants/aos_constants_cn.rb的678-681行做出修改，改成：
+WEAPON_GFX_LIST_START = 0x084BCFC8
+WEAPON_GFX_COUNT = 0x2F
+WEAPON_SPRITES_LIST_START = 0x084BD084
+WEAPON_PALETTE_LIST = 0x081CF984
+调色板我倒是没管，因为似乎不重要——毕竟武器的调色板是单拿出来的吧？似乎
+——by Abslb
+
+对于中文版编辑中技能的sprite和gfx编辑有问题的情况：
+对./constants/aos_constants_cn.rb的682行做出修改，改成：
+SKILL_GFX_LIST_START = 0x080DF904
+——by 世贤小公举

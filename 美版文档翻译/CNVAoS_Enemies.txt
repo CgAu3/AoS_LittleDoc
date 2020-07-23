@@ -1,0 +1,213 @@
+Enemies:
+晓月敌人列表
+来源：DSVania Edit 作者：Lago Lunatic
+翻译：Abslb
+00 Bat 蝙蝠
+01 Zombie 僵尸
+  （参数由译者编辑）
+  Var A: 如果是生成器，同时出现的个数上限
+  Var B: 是否是生成器
+02 Skeleton 骷髅
+03 Merman 半鱼人
+  单只的半鱼人是把varA和varB都置为0.
+  生成从水里跳出来的半鱼人是都置为1.
+  其他组合会产生充满bug的半鱼人的说~
+04 Axe Armor 斧装甲
+05 Skull Archer 骷髅射手
+  Var A: ?
+06 Peeping Eye 监视眼
+  Var A:
+    0 普通监视眼
+    1 背景中，没有碰撞的，只是个装饰品的，可怜没人爱的监视眼
+07 Killer Fish 食人鱼
+  Var B: ?
+08 Bone Pillar 骨柱
+  Var A: 堆叠的骨头的个数
+09 Blue Crow 蓝乌鸦
+0A Buer 布埃尔（五腿狮子）
+  Var A: ?
+0B White Dragon 白骨龙
+  Var A: ?
+0C Zombie Soldier 丧尸士兵
+0D Skeleton Knight 骷髅骑士
+0E Ghost 幽灵
+  幽灵一般是生成器。
+  Var A: 同一房间同时存在的幽灵的个数上限
+  Var B: 生成幽灵的延迟
+  如果都置为0，那就是单个幽灵。
+0F Siren 塞壬
+10 Tiny Devil 小恶魔
+11 Durga 多尔佳（白皮四手）
+12 Rock Armor 投石装甲
+13 Giant Ghost 大鬼魂
+14 Winged Skeleton 飞骷髅（投枪魔）
+  译注：参数可能与生成器有关。
+  Var A: ?
+  Var B: ?
+15 Minotaur 米诺陶斯（紫）
+16 Student Witch 见习巫女
+17 Arachne 阿格尼（蜘蛛女）
+18 Fleaman 跳蚤男
+  Var A: ?
+  Var B: ?
+19 Evil Butcher 邪恶屠夫
+  译注：参数可能是颜色
+  Var B: ?
+1A Quezlcoatl 古代龙神
+1B Ectoplasm 诅咒魔
+1C Catoblepas 卡特加鲁斯（紫色石化牛）
+1D Ghost Dancer 鬼魂舞者
+  Var A: 调色板编号（或者说偏移）
+    0 蓝+绿
+    1 紫+黄
+    2 棕+粉
+1E Waiter Skeleton 骷髅小子（服务员）
+1F Killer Doll 杀人木偶
+20 Zombie Officer 丧尸军官
+21 Creaking Skull 大骸骨（蓝）
+  Var A:
+    0 普通敌人
+    1 BOSS. 打一次就消失，会插boss flag，爆满血球。
+22 Wooden Golem 木巨人
+23 Tsuchinoko 小蛇
+24 Persephone 普罗希比那（女仆）
+25 Lilith 莉莉丝
+26 Nemesis 尼姆西斯（隐形细剑使）
+27 Kyoma Demon 镜魔
+  Var A:
+    0 镜魔
+    1 镜子，不是镜魔
+28 Chronomage 时之法师
+29 Valkyrie 瓦尔基里
+2A Witch 女巫
+2B Curly 卡利（黑皮四手）
+2C Altair 阿泰尔（秃鹫）
+  译注：参数可能与生成器有关。
+  Var A: ?
+  Var B: ?
+2D Red Crow 红乌鸦
+2E Cockatrice 石化鸡（红白）
+2F Dead Warrior 死亡骑兵
+30 Devil 恶魔
+31 Imp 子恶魔
+32 Werewolf 狼人
+33 Gorgon 石化牛（绿）
+34 Disc Armor 碟装甲
+  Var A:
+    0 看到你的时候就会攻击
+    1 看到你后会走向你，靠近后攻击
+35 Golem 石巨人（小怪）
+36 Manticore 曼提斜亚（狮蝎）
+  Var A:
+    0 小怪
+    1 BOSS. 打一次就消失，会插boss flag，爆满血球。
+37 Gremlin 仔恶魔（时计塔绿色的）
+38 Harpy 鹰身女妖
+39 Medusa Head 美杜莎头
+  Var A: 如果是生成器，同时出现的个数上限
+  Var B:
+    0 单个蓝头。
+    1 单个黄头。
+    2 蓝头生成器。
+    3 黄头生成器。
+3A Bomber Armor 炸弹装甲
+3B Lightning Doll 雷人偶
+3C Great Armor 大装甲
+  译注：参数可能与boss有关
+  Var A: ?
+3D Une 妖草
+  译注：参数可能与是不是会吐种子有关
+  Var B: ?
+3E Giant Worm 巨青虫
+3F Needles 针刺球（海胆）
+  Var A:
+    0 完全静止
+    1 轻轻地上下浮动
+40 Man-Eater 食人魔
+  译注：参数可能与boss有关
+  Var A: ?
+41 Fish Head 鱼头
+  Var A: 堆叠的骨头的个数
+42 Nightmare 噩梦（黑色骑士/黑色马）
+  译注：参数可能是此怪是骑士还是马
+  Var A: ?
+43 Triton 特里顿
+44 Slime 史莱姆
+  译注：参数可能是颜色
+  Var A: ?
+  Var B: ?
+45 Big Golem 巨人（舞蹈馆的boss）
+  译注：参数可能与boss有关
+  Var A: ?
+46 Dryad 多利亚德
+47 Poison Worm 毒虫
+48 Arc Demon 方舟恶魔（上位魔将）
+49 Cagnazzo 凯诺曹（叨扰鬼吏）
+4A Ripper 杀人魔
+  译注：参数可能与生成器有关。
+  Var A: ?
+  Var B: ?
+4B Werejaguar 豹人
+4C Ukoback 由卡巴克
+4D Alura Une 阿尔拉妖花
+4E Biphron 比夫蒙
+4F Mandragora 曼德拉格拉
+50 Flesh Golem 鲜血巨人
+51 Sky Fish 飞空鱼
+52 Dead Crusader 死亡十字军
+53 Kicker Skeleton 骷髅踢手
+54 Weretiger 虎人
+55 Killer Mantle 杀人披风
+56 Mudman 泥人
+57 Gargoyle 石像鬼
+58 Red Minotaur 红色米诺陶
+59 Beam Skeleton 光柱骷髅
+5A Alastor 阿拉斯托
+5B Skull Millione 骷髅飞兵（毒爪鬼吏）
+5C Giant Skeleton 大骷髅（黄）
+5D Gladiator 角斗士
+5E Bael 巴埃尔（奸智魔）
+  Var A: ?
+5F Succubus 梦魇
+  Var A:
+    0 扮成Mina弥娜酱的梦魇
+    1 普通的梦魇
+60 Mimic 拟态魔
+  Var A:
+    0 在蜡烛中
+    1 就放在那里
+  Var B: “钱袋”颜色
+    0 蓝色 (假的 $500)
+    1 橙色 (假的 $1000)
+    2 金色 (假的 $2000)
+    这些颜色和真正的钱袋是完全相同的，但是高亮要暗一些
+    译注：译者认为这指的是拟态魔的贴图与钱袋相同，但是并不会像真正的钱袋那样buling buling的
+61 Stolas 斯托拉斯
+  Var A: 它可以召唤的第一种怪物的编号
+    如果是0，则用默认的0D（骷髅骑士）
+  Var B: 它可以召唤的第二种怪物的编号
+    如果是0，则用默认的52（死亡十字军）
+62 Erinys 埃利尼斯
+63 Lubicant 卢比根特（愤怒鬼吏）
+64 Basilisk 石化鸡蛇（黄+绿）
+65 Iron Golem 铁巨人
+66 Demon Lord 恶魔领主（恶魔公）
+67 Final Guard 终极守卫
+68 Flame Demon 火恶魔
+69 Shadow Knight 暗影骑士
+6A Headhunter 收集者
+  Var A: ?
+6B Death 死神
+  Var A: ?
+6C Legion 死人军团
+  Var A: ?
+6D Balore 巴洛尔
+  Var A: ?
+6E Belmont 尤利乌斯·贝尔蒙多（J叔）
+  Var A: ?
+6F Graham 格拉罕
+  Var A: ?
+70 Chaos 混沌
+  Var A: ?
+  Var B: ?
+  译注：译者对这些参数也没有半点想法。

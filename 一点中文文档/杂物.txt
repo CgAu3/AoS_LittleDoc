@@ -1,0 +1,45 @@
+荒城  丧尸房间与其砖块相同的
+A 砖块色 蓝
+10 背景色 蓝 
+C 部分墙体颜色 蓝
+F 背景颜色  蓝
+19 背景颜色 屎黄
+1C 部分墙体 棕黑
+20 部分墙体 金黄
+25 碰撞层 粉黑
+26 背景砖 蓝灰
+29 背景色 复古
+33 实体发光
+35 部分墙体 火焰颜色
+37 背景变暗
+38 实体  绿色
+39 背景变灰
+
+急退魂台房间
+4 门口变蓝\
+6水颜色粉红
+7 蓝色闪烁
+8 背景蓝色
+19 背景颜色 屎黄
+1A 部分变黑
+1C 水变黑 闪烁
+——by 装甲车
+
+
+   00 Graham
+    01 Death
+    02 Julius
+    03 (Unused)
+    04 Headhunter
+    05 Legion
+    06 Balore
+    07 Chaos
+    08 ()Red Minotuar
+    09 (Unused)
+    0A Manticore
+    0B Creaking Skull
+    0C Big Golem
+    0D ()Man-Eater
+    0E (Unused)
+    0F Great Armor
+——感谢备不住
