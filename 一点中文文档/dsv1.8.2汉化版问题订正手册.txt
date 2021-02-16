@@ -11,3 +11,9 @@ WEAPON_PALETTE_LIST = 0x081CF984
 对./constants/aos_constants_cn.rb的682行做出修改，改成：
 SKILL_GFX_LIST_START = 0x080DF904
 ——by 世贤小公举
+
+关于死人军团和巴洛尔的动画无法加载：
+还是那个文件./constants/aos_constants_cn.rb
+520行 死人军团 sprite: 0x082258fc改成sprite: 0x081E89D8
+521行 巴洛尔 sprite: 0x08243F0A改成sprite: 0x082036AC
+——by Abslb
